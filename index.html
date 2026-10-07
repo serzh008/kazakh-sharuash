@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Қазақ халқының шаруашылығы және мәдениеті</title>
+
+    <style>
+
+        /* =========================================
+           НЕГІЗГІ БАПТАУЛАР
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4efe5;
+            color: #30271f;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            min-height: 520px;
+
+            background:
+                linear-gradient(
+                    rgba(40, 27, 15, 0.72),
+                    rgba(40, 27, 15, 0.72)
+                ),
+                url("images/header.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 60px 20px;
+        }
+
+        .header-content {
+            max-width: 1000px;
+        }
+
+        header h1 {
+            font-size: 54px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+
+            text-shadow: 2px 3px 8px black;
+        }
+
+        header p {
+            font-size: 22px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+
+        /* =========================================
+           НАВИГАЦИЯ
+        ========================================= */
+
+        nav {
+            background: #57391f;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+        }
+
+        nav button {
+            background: transparent;
+            border: none;
+
+            color: white;
+
+            padding: 19px 25px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            background: #815b36;
+        }
+
+        nav button.active {
+            background: #a97943;
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+            width: 92%;
+            max-width: 1250px;
+
+            margin: 60px auto;
+        }
+
+
+        /* =========================================
+           TAB
+        ========================================= */
+
+        .tab {
+            display: none;
+
+            animation: appear 0.5s ease;
+        }
+
+        .tab.active {
+            display: block;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================================
+           ЗАГОЛОВОК РАЗДЕЛА
+        ========================================= */
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #68431f;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #766b60;
+            font-size: 18px;
+        }
+
+
+        /* =========================================
+           БОЛЬШОЙ ТЕКСТОВЫЙ БЛОК
+        ========================================= */
+
+        .text-box {
+            background: white;
+
+            padding: 40px;
+
+            margin-bottom: 45px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+
+            border-top: 5px solid #8b6035;
+        }
+
+        .text-box h3 {
+            color: #6d451f;
+
+            font-size: 27px;
+
+            margin-bottom: 20px;
+        }
+
+        .text-box p {
+            font-size: 18px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================
+           БЛОК С ФОТО
+        ========================================= */
+
+        .photo-section-title {
+            text-align: center;
+
+            font-size: 30px;
+
+            color: #68431f;
+
+            margin: 45px 0 25px;
+        }
+
+
+        .photos {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 35px;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================================
+           КАРТОЧКА ФОТО
+        ========================================= */
+
+        .photo-card {
+            background: white;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow: 0 7px 25px rgba(0,0,0,0.1);
+
+            transition: 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+        }
+
+
+        /* =========================================
+           БОЛЬШОЕ ФОТО
+        ========================================= */
+
+        .photo-card img {
+            width: 100%;
+
+            height: 420px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .photo-description {
+            padding: 28px;
+        }
+
+        .photo-description h3 {
+            color: #68431f;
+
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+        .photo-description p {
+            color: #5f574f;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================
+           БОЛЬШОЕ ФОТО НА ВСЮ ШИРИНУ
+        ========================================= */
+
+        .large-photo {
+            background: white;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            margin: 45px 0;
+
+            box-shadow: 0 7px 25px rgba(0,0,0,0.1);
+        }
+
+        .large-photo img {
+            width: 100%;
+
+            height: 550px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .large-photo-text {
+            padding: 30px;
+        }
+
+        .large-photo-text h3 {
+            color: #68431f;
+
+            font-size: 27px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* =========================================
+           ФАКТ
+        ========================================= */
+
+        .fact {
+            background: #e8d5b8;
+
+            border-left: 7px solid #8b6035;
+
+            padding: 25px 30px;
+
+            border-radius: 8px;
+
+            margin: 40px 0;
+
+            font-size: 17px;
+        }
+
+        .fact strong {
+            color: #5c391b;
+        }
+
+
+        /* =========================================
+           СПИСОК
+        ========================================= */
+
+        .list-box {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            margin: 35px 0;
+
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        }
+
+        .list-box h3 {
+            color: #68431f;
+
+            margin-bottom: 20px;
+
+            font-size: 26px;
+        }
+
+        .list-box ul {
+            padding-left: 25px;
+        }
+
+        .list-box li {
+            margin-bottom: 10px;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #412b1a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            margin-top: 70px;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================
+           ТЕЛЕФОН
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                min-height: 400px;
+            }
+
+            header h1 {
+                font-size: 35px;
+            }
+
+            header p {
+                font-size: 17px;
+            }
+
+            nav button {
+                padding: 14px 10px;
+                font-size: 13px;
+            }
+
+            main {
+                width: 94%;
+            }
+
+            .photos {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-card img {
+                height: 320px;
+            }
+
+            .large-photo img {
+                height: 350px;
+            }
+
+            .text-box {
+                padding: 25px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="header-content">
+
+        <h1>
+            Қазақ халқының шаруашылығы және мәдениеті
+        </h1>
+
+        <p>
+            Қазақ халқының дәстүрлі шаруашылығы,
+            қолөнері, тұрмысы және мәдениеті
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     НАВИГАЦИЯ
+===================================================== -->
+
+<nav>
+
+    <button
+        class="tab-button active"
+        onclick="openTab('mal', this)">
+        Мал шаруашылығы
+    </button>
+
+    <button
+        class="tab-button"
+        onclick="openTab('egin', this)">
+        Егін шаруашылығы
+    </button>
+
+    <button
+        class="tab-button"
+        onclick="openTab('oner', this)">
+        Қолөнер
+    </button>
+
+    <button
+        class="tab-button"
+        onclick="openTab('basqa', this)">
+        Басқа шаруашылықтары
+    </button>
+
+    <button
+        class="tab-button"
+        onclick="openTab('madeniet', this)">
+        Мәдениеті
+    </button>
+
+</nav>
+
+
+
+<main>
+
+
+
+<!-- =====================================================
+     1. МАЛ ШАРУАШЫЛЫҒЫ
+===================================================== -->
+
+<section id="mal" class="tab active">
+
+
+    <div class="section-title">
+
+        <h2>Мал шаруашылығы</h2>
+
+        <p>
+            Қазақ халқының дәстүрлі шаруашылығының негізгі саласы
+        </p>
+
+    </div>
+
+
+    <div class="text-box">
+
+        <h3>Мал шаруашылығының маңызы</h3>
+
+        <p>
+            Қазақ халқының дәстүрлі өмірінде мал шаруашылығы
+            ерекше орын алды. Ұлан-ғайыр дала, табиғи жайылымдардың
+            көп болуы және климаттық жағдайлар көшпелі және
+            жартылай көшпелі мал шаруашылығының дамуына мүмкіндік берді.
+        </p>
+
+        <p>
+            Қазақтар жыл мезгіліне байланысты қоныстарын ауыстырып
+            отырған. Қыстау, көктеу, жайлау және күзеу жүйесі
+            малды жыл бойы қолайлы жайылыммен қамтамасыз етуге
+            мүмкіндік берді.
+        </p>
+
+        <p>
+            Мал шаруашылығы халықты азық-түлікпен, киімге қажетті
+            шикізатпен және көлікпен қамтамасыз етті.
+        </p>
+
+    </div>
+
+
+    <div class="list-box">
+
+        <h3>Негізгі мал түрлері</h3>
+
+        <ul>
+
+            <li>Жылқы — көлік, ет және қымыз үшін.</li>
+
+            <li>Қой — ет, жүн және тері үшін.</li>
+
+            <li>Түйе — көлік және жүк тасу үшін.</li>
+
+            <li>Сиыр — ет және сүт өнімдері үшін.</li>
+
+        </ul>
+
+    </div>
+
+
+    <h3 class="photo-section-title">
+        Мал шаруашылығына байланысты суреттер
+    </h3>
+
+
+    <div class="photos">
+
+
+        <div class="photo-card">
+
+            <img src="images/mal1.jpg"
+                 alt="Қазақ жылқылары">
+
+            <div class="photo-description">
+
+                <h3>Жылқы шаруашылығы</h3>
+
+                <p>
+                    Жылқы қазақ халқы үшін көлік қана емес,
+                    тұрмыс пен мәдениеттің маңызды бөлігі болды.
+                    Жылқыдан қымыз және ет алынған.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/mal2.jpg"
+                 alt="Қой шаруашылығы">
+
+            <div class="photo-description">
+
+                <h3>Қой шаруашылығы</h3>
+
+                <p>
+                    Қой қазақтардың негізгі малдарының бірі болды.
+                    Оның жүні, терісі және еті тұрмыста кең қолданылды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/mal3.jpg"
+                 alt="Түйе">
+
+            <div class="photo-description">
+
+                <h3>Түйе шаруашылығы</h3>
+
+                <p>
+                    Түйе шөл және шөлейт жерлерде ұзақ жол жүруге
+                    қолайлы көлік ретінде пайдаланылды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/mal4.jpg"
+                 alt="Қазақ ауылы">
+
+            <div class="photo-description">
+
+                <h3>Дәстүрлі ауыл</h3>
+
+                <p>
+                    Мал шаруашылығы қазақ ауылдарының күнделікті
+                    тұрмысы мен қоныстану жүйесіне әсер етті.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="fact">
+
+        <strong>Қызықты факт:</strong>
+
+        Қазақтардың дәстүрлі шаруашылығында жылқы ерекше
+        құрметке ие болды және ұлттық мәдениеттің символдарының
+        біріне айналды.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     2. ЕГІН ШАРУАШЫЛЫҒЫ
+===================================================== -->
+
+<section id="egin" class="tab">
+
+
+    <div class="section-title">
+
+        <h2>Егін шаруашылығы</h2>
+
+        <p>
+            Қазақ даласындағы егіншілік дәстүрі
+        </p>
+
+    </div>
+
+
+    <div class="text-box">
+
+        <h3>Егіншіліктің дамуы</h3>
+
+        <p>
+            Қазақ халқының барлығы тек мал шаруашылығымен
+            айналысқан жоқ. Әсіресе өзен аңғарларында және
+            оңтүстік аймақтарда егіншілік маңызды кәсіптердің
+            біріне айналды.
+        </p>
+
+        <p>
+            Сырдария, Шу, Талас және Іле өзендері маңында
+            суармалы егіншілік дамыды. Адамдар арықтар қазып,
+            суды егістікке жеткізген.
+        </p>
+
+        <p>
+            Бидай, арпа, тары, күріш және басқа да дақылдар
+            өсірілді.
+        </p>
+
+    </div>
+
+
+    <div class="large-photo">
+
+        <img src="images/egin-main.jpg"
+             alt="Егін шаруашылығы">
+
+        <div class="large-photo-text">
+
+            <h3>Дәстүрлі егіншілік</h3>
+
+            <p>
+                Бұл жерге өзің қалаған үлкен суретті және
+                оның сипаттамасын орналастыра аласың.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="photos">
+
+
+        <div class="photo-card">
+
+            <img src="images/egin1.jpg"
+                 alt="Егін егу">
+
+            <div class="photo-description">
+
+                <h3>Егін егу</h3>
+
+                <p>
+                    Егін егу ауыл тұрғындарының ортақ еңбегін
+                    қажет етті.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/egin2.jpg"
+                 alt="Тары">
+
+            <div class="photo-description">
+
+                <h3>Тары өсіру</h3>
+
+                <p>
+                    Тары қазақ халқының дәстүрлі тағамдарының
+                    маңызды шикізаты болды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/egin3.jpg"
+                 alt="Суару жүйесі">
+
+            <div class="photo-description">
+
+                <h3>Суармалы егіншілік</h3>
+
+                <p>
+                    Оңтүстік аймақтарда арықтар арқылы егістікке
+                    су жеткізілген.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/egin4.jpg"
+                 alt="Егін жинау">
+
+            <div class="photo-description">
+
+                <h3>Егін жинау</h3>
+
+                <p>
+                    Егін піскен кезде оны жинау жұмыстарына
+                    ауыл тұрғындары бірге қатысқан.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     3. ҚОЛӨНЕР
+===================================================== -->
+
+<section id="oner" class="tab">
+
+
+    <div class="section-title">
+
+        <h2>Қолөнер</h2>
+
+        <p>
+            Қазақ халқының дәстүрлі шеберлігі мен өнері
+        </p>
+
+    </div>
+
+
+    <div class="text-box">
+
+        <h3>Қазақ қолөнері</h3>
+
+        <p>
+            Қазақ халқының қолөнері ғасырлар бойы қалыптасқан
+            мәдени мұралардың бірі болып табылады.
+            Шеберлер тұрмысқа қажетті заттарды өз қолдарымен
+            жасап, оларды ұлттық ою-өрнектермен безендірген.
+        </p>
+
+        <p>
+            Қолөнерге киіз басу, кілем тоқу, ағаш өңдеу,
+            зергерлік өнер, ұсталық, тері өңдеу және
+            сүйек өңдеу сияқты кәсіптер кірді.
+        </p>
+
+    </div>
+
+
+    <div class="photos">
+
+
+        <div class="photo-card">
+
+            <img src="images/oner1.jpg"
+                 alt="Киіз басу">
+
+            <div class="photo-description">
+
+                <h3>Киіз басу</h3>
+
+                <p>
+                    Киізден текемет, сырмақ, киіз үйге арналған
+                    бұйымдар және басқа заттар жасалды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/oner2.jpg"
+                 alt="Зергерлік өнер">
+
+            <div class="photo-description">
+
+                <h3>Зергерлік өнер</h3>
+
+                <p>
+                    Зергерлер күміс және басқа материалдардан
+                    сақина, білезік, сырға және басқа әшекейлер жасаған.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/oner3.jpg"
+                 alt="Ағаш өңдеу">
+
+            <div class="photo-description">
+
+                <h3>Ағаш өңдеу</h3>
+
+                <p>
+                    Ағаш шеберлері домбыра, ыдыс-аяқ, бесік,
+                    ер-тұрман және басқа бұйымдар жасаған.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/oner4.jpg"
+                 alt="Ою-өрнек">
+
+            <div class="photo-description">
+
+                <h3>Ою-өрнек</h3>
+
+                <p>
+                    Ою-өрнектер киімде, кілемде, ыдыстарда,
+                    киіз бұйымдарда және басқа заттарда қолданылды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="large-photo">
+
+        <img src="images/oner-main.jpg"
+             alt="Қазақ қолөнері">
+
+        <div class="large-photo-text">
+
+            <h3>Қолөнер — ұлттық мұра</h3>
+
+            <p>
+                Қолөнер арқылы қазақ халқының эстетикалық
+                талғамы, дүниетанымы және тұрмыс ерекшеліктері
+                ұрпақтан ұрпаққа жеткізілді.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     4. БАСҚА ШАРУАШЫЛЫҚТАР
+===================================================== -->
+
+<section id="basqa" class="tab">
+
+
+    <div class="section-title">
+
+        <h2>Басқа шаруашылықтары</h2>
+
+        <p>
+            Аңшылық, балық аулау, сауда және басқа кәсіптер
+        </p>
+
+    </div>
+
+
+    <div class="text-box">
+
+        <h3>Аңшылық</h3>
+
+        <p>
+            Аңшылық қазақтардың дәстүрлі кәсіптерінің бірі болды.
+            Ол халықты ет, тері және басқа табиғи ресурстармен
+            қамтамасыз етті.
+        </p>
+
+    </div>
+
+
+    <div class="photos">
+
+
+        <div class="photo-card">
+
+            <img src="images/basqa1.jpg"
+                 alt="Аңшылық">
+
+            <div class="photo-description">
+
+                <h3>Аңшылық</h3>
+
+                <p>
+                    Қазақтар аңшылықта түрлі құралдармен қатар
+                    қыран құстарды да пайдаланған.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/basqa2.jpg"
+                 alt="Балық аулау">
+
+            <div class="photo-description">
+
+                <h3>Балық аулау</h3>
+
+                <p>
+                    Өзендер мен көлдерге жақын орналасқан
+                    халық балық аулаумен айналысқан.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/basqa3.jpg"
+                 alt="Сауда">
+
+            <div class="photo-description">
+
+                <h3>Сауда</h3>
+
+                <p>
+                    Сауда қазақ даласындағы халықтардың
+                    экономикалық және мәдени байланысын күшейтті.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="photo-card">
+
+            <img src="images/basqa4.jpg"
+                 alt="Базар">
+
+            <div class="photo-description">
+
+                <h3>Жәрмеңке</h3>
+
+                <p>
+                    Жәрмеңкелерде мал, ауыл шаруашылығы өнімдері,
+                    қолөнер бұйымдары және басқа тауарлар сатылды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="fact">
+
+        <strong>Қызықты факт:</strong>
+
+        Қазақ даласындағы сауда жолдары тек тауар алмасуға
+        емес, мәдени байланыстардың дамуына да ықпал етті.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     5. МӘДЕНИЕТІ
+===================================================== -->
+
+<section id="madeniet" class="tab">
+
+
+    <div class="section-title">
+
+        <h2>Қазақ халқының мәдениеті</h2>
+
+        <p>
+            Дәстүр, музыка, ұлттық ойындар, әдебиет және рухани мұра
+        </p>
+
+    </div>
+
+
+    <div class="text-box">
+
+        <h3>Қазақ мәдениеті</h3>
+
+        <p>
+            Қазақ халқының мәдениеті ғасырлар бойы қалыптасып,
+            ұрпақтан ұрпаққа ауызша және дәстүрлі жолдармен
+            беріліп отырды.
+        </p>
+
+        <p>
+            Қазақ мәдениетінің маңызды элементтеріне ұлттық
+            музыка, салт-дәстүрлер, әдет-ғұрыптар, ұлттық киім,
+            тағамдар, қолөнер, ауыз әдебиеті және ұлттық ойындар
+            жатады.
+        </p>
+
+        <p>
+            Киіз үй де қазақ мәдениетінің маңызды символдарының
+            бірі болып саналады. Оның құрылысы көшпелі өмір
+            салтына бейімделген.
+        </p>
+
+    </div>
+
+
+    <!-- КИІЗ ҮЙ -->
+
+    <div class="large-photo">
+
+        <img src="images/madeniet-kiizui.jpg"
+             alt="Қазақтың киіз үйі">
+
+        <div class="large-photo-text">
+
+            <h3>Киіз үй</h3>
+
+            <p>
+                Киіз үй — қазақ халқының дәстүрлі баспанасы.
+                Ол көшпелі өмір салтына өте қолайлы болды.
+                Киіз үйдің ішкі безендірілуінде ұлттық
+                ою-өрнектер кеңінен қолданылған.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <h3 class="photo-section-title">
+        Қазақ мәдениетінің негізгі бағыттары
+    </h3>
+
+
+    <div class="photos">
+
+
+        <!-- МУЗЫКА -->
+
+        <div class="photo-card">
+
+            <img src="images/madeniet1.jpg"
+                 alt="Қазақ музыкасы">
+
+            <div class="photo-description">
+
+                <h3>Музыка</h3>
+
+                <p>
+                    Домбыра қазақ халқының ең танымал ұлттық
+                    музыкалық аспаптарының бірі. Күй өнері
+                    қазақ мәдениетінде ерекше орын алады.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ҰЛТТЫҚ КИІМ -->
+
+        <div class="photo-card">
+
+            <img src="images/madeniet2.jpg"
+                 alt="Ұлттық киім">
+
+            <div class="photo-description">
+
+                <h3>Ұлттық киім</h3>
+
+                <p>
+                    Қазақтың ұлттық киімдері халықтың тұрмысын,
+                    жас ерекшелігін және әлеуметтік ерекшеліктерін
+                    көрсеткен.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ҰЛТТЫҚ ОЙЫН -->
+
+        <div class="photo-card">
+
+            <img src="images/madeniet3.jpg"
+                 alt="Ұлттық ойындар">
+
+            <div class="photo-description">
+
+                <h3>Ұлттық ойындар</h3>
+
+                <p>
+                    Көкпар, бәйге, асық ату және басқа ұлттық
+                    ойындар қазақ халқының мәдени өмірінің
+                    маңызды бөлігі болды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ДӘСТҮР -->
+
+        <div class="photo-card">
+
+            <img src="images/madeniet4.jpg"
+                 alt="Қазақ дәстүрлері">
+
+            <div class="photo-description">
+
+                <h3>Салт-дәстүр</h3>
+
+                <p>
+                    Бесікке салу, тұсаукесер, шілдехана және
+                    басқа дәстүрлер қазақ халқының рухани
+                    мәдениетінде маңызды орын алды.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="list-box">
+
+        <h3>Қазақ мәдениетінің негізгі элементтері</h3>
+
+        <ul>
+
+            <li>Ұлттық музыка және күй өнері</li>
+
+            <li>Ауыз әдебиеті және жыр-дастандар</li>
+
+            <li>Ұлттық киім</li>
+
+            <li>Салт-дәстүрлер мен әдет-ғұрыптар</li>
+
+            <li>Ұлттық тағамдар</li>
+
+            <li>Ұлттық ойындар</li>
+
+            <li>Қолөнер және ою-өрнек</li>
+
+            <li>Киіз үй мәдениеті</li>
+
+        </ul>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h3>
+        Қазақ халқының шаруашылығы және мәдениеті
+    </h3>
+
+    <p>
+        Қазақстан тарихы бойынша оқу жобасы
+    </p>
+
+    <p>
+        © 2026
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    function openTab(tabName, button) {
+
+        // Барлық вкладкаларды жасырамыз
+
+        const tabs = document.querySelectorAll(".tab");
+
+        tabs.forEach(function(tab) {
+
+            tab.classList.remove("active");
+
+        });
+
+
+        // Барлық батырмалардың active класын өшіреміз
+
+        const buttons = document.querySelectorAll(".tab-button");
+
+        buttons.forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        // Қажетті вкладканы көрсетеміз
+
+        document.getElementById(tabName).classList.add("active");
+
+
+        // Басылған батырманы белсенді етеміз
+
+        button.classList.add("active");
+
+
+        // Бетті жоғарыға апарамыз
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html>
